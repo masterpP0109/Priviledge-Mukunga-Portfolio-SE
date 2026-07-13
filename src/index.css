@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom background styles and premium glow animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+.glow-bg-primary {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(0,0,0,0) 70%);
+  animation: pulseGlow 10s infinite ease-in-out;
+}
+
+.glow-bg-secondary {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+  animation: pulseGlow 14s infinite ease-in-out reverse;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #a855f7;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* User Custom Scroll-Driven Animations from CSS */
+.autoBlur {
+  animation: autoBlurAnimation linear both;
+  animation-timeline: view();
+}
+
+@keyframes autoBlurAnimation {
+  0% {
+    filter: blur(40px);
+    opacity: 0;
+  }
+  35%,
+  65% {
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(40px);
+    opacity: 0;
+  }
+}
+
+.autoDisplay {
+  animation: autoDisplayAnimation both;
+  animation-timeline: view();
+}
+
+@keyframes autoDisplayAnimation {
+  from {
+    filter: blur(10px);
+    transform: translateY(-100px) scale(0.8);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fadeInRight {
+  animation: fadeInAnimation both;
+  animation-timeline: view();
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.9);
+    filter: blur(20px);
+  }
+  35%,
+  65% {
+    opacity: 1;
+    transform: translateX(0px) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(20px);
+    opacity: 0;
+  }
+}
+
+/* Custom marquee slider from slider section */
+@keyframes autoRun {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -120px;
+  }
+}
+
+.animate-autoRun {
+  animation: autoRun 16s linear infinite;
+}
+
+

@@ -1,0 +1,492 @@
+{
+  "leads": [],
+  "analytics": [
+    {
+      "id": "event-1783875122720-c398poej0",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "pageview",
+      "eventData": "{\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36\",\"screenResolution\":\"1536x864\",\"referrer\":\"https://ais-dev-nvfw7lwlfhornbwfbus5vk-566342343017.europe-west1.run.app/\",\"path\":\"/\"}",
+      "timestamp": "2026-07-12T16:52:02.720Z"
+    },
+    {
+      "id": "event-1783875122722-0gpiacilh",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "pageview",
+      "eventData": "{\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36\",\"screenResolution\":\"1536x864\",\"referrer\":\"https://ais-dev-nvfw7lwlfhornbwfbus5vk-566342343017.europe-west1.run.app/\",\"path\":\"/\"}",
+      "timestamp": "2026-07-12T16:52:02.722Z"
+    },
+    {
+      "id": "event-1783875137604-yjpca92fn",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"skip_kinetic_intro\"}",
+      "timestamp": "2026-07-12T16:52:17.604Z"
+    },
+    {
+      "id": "event-1783875137606-ytbflzxzc",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"Skip to Portfolio\",\"elementType\":\"button\",\"text\":\"Skip to Portfolio\"}",
+      "timestamp": "2026-07-12T16:52:17.606Z"
+    },
+    {
+      "id": "event-1783875151650-m98zxjycy",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"hero_folder_01\"}",
+      "timestamp": "2026-07-12T16:52:31.650Z"
+    },
+    {
+      "id": "event-1783875153596-wwkeexoe8",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "play_video",
+      "eventData": "{\"projectId\":\"project-2\",\"title\":\"Cosmic Flow - 3D Abstract Motion Graphic\"}",
+      "timestamp": "2026-07-12T16:52:33.596Z"
+    },
+    {
+      "id": "event-1783875596113-ya35py2iz",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "pageview",
+      "eventData": "{\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36\",\"screenResolution\":\"1536x864\",\"referrer\":\"https://aistudio.google.com/\",\"path\":\"/\"}",
+      "timestamp": "2026-07-12T16:59:56.113Z"
+    },
+    {
+      "id": "event-1783875596179-dv32mt6g8",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "pageview",
+      "eventData": "{\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36\",\"screenResolution\":\"1536x864\",\"referrer\":\"https://aistudio.google.com/\",\"path\":\"/\"}",
+      "timestamp": "2026-07-12T16:59:56.179Z"
+    },
+    {
+      "id": "event-1783875825384-ntod4u9g3",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_11\"}",
+      "timestamp": "2026-07-12T17:03:45.384Z"
+    },
+    {
+      "id": "event-1783875825469-qy0u01p26",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:45.469Z"
+    },
+    {
+      "id": "event-1783875825471-5a779e7ep",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:45.471Z"
+    },
+    {
+      "id": "event-1783875825472-xlaexz578",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_10\"}",
+      "timestamp": "2026-07-12T17:03:45.472Z"
+    },
+    {
+      "id": "event-1783875825576-vz4n9p6ui",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_9\"}",
+      "timestamp": "2026-07-12T17:03:45.576Z"
+    },
+    {
+      "id": "event-1783875825652-5hygzrkyq",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:45.652Z"
+    },
+    {
+      "id": "event-1783875825674-nme1bel7q",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_8\"}",
+      "timestamp": "2026-07-12T17:03:45.674Z"
+    },
+    {
+      "id": "event-1783875825676-11udmfvjg",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:45.676Z"
+    },
+    {
+      "id": "event-1783875825678-1eaogab3p",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_7\"}",
+      "timestamp": "2026-07-12T17:03:45.678Z"
+    },
+    {
+      "id": "event-1783875825749-r02r2ms67",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:45.749Z"
+    },
+    {
+      "id": "event-1783875825833-22rr1t6yh",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_6\"}",
+      "timestamp": "2026-07-12T17:03:45.833Z"
+    },
+    {
+      "id": "event-1783875825842-lp4zoffrg",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:45.842Z"
+    },
+    {
+      "id": "event-1783875826054-2wp6cbds9",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_5\"}",
+      "timestamp": "2026-07-12T17:03:46.054Z"
+    },
+    {
+      "id": "event-1783875826140-cvl8t591a",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:46.140Z"
+    },
+    {
+      "id": "event-1783875826184-hi9h43bja",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_4\"}",
+      "timestamp": "2026-07-12T17:03:46.184Z"
+    },
+    {
+      "id": "event-1783875826564-z4jref6ye",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_3\"}",
+      "timestamp": "2026-07-12T17:03:46.564Z"
+    },
+    {
+      "id": "event-1783875826565-twcwluwyw",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:46.565Z"
+    },
+    {
+      "id": "event-1783875826567-sdrl4ftzz",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:46.567Z"
+    },
+    {
+      "id": "event-1783875826569-jlg5owm77",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_2\"}",
+      "timestamp": "2026-07-12T17:03:46.569Z"
+    },
+    {
+      "id": "event-1783875826570-yzmyldqwb",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:46.570Z"
+    },
+    {
+      "id": "event-1783875827433-78dr23r5l",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_1\"}",
+      "timestamp": "2026-07-12T17:03:47.433Z"
+    },
+    {
+      "id": "event-1783875827440-gbk87eiv5",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:03:47.441Z"
+    },
+    {
+      "id": "event-1783875833883-di3d6104e",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_0\"}",
+      "timestamp": "2026-07-12T17:03:53.883Z"
+    },
+    {
+      "id": "event-1783875833886-0x9ju7txf",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:03:53.886Z"
+    },
+    {
+      "id": "event-1783875834009-vfzmelw4w",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_1\"}",
+      "timestamp": "2026-07-12T17:03:54.009Z"
+    },
+    {
+      "id": "event-1783875834010-aefy1p3x9",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:03:54.010Z"
+    },
+    {
+      "id": "event-1783875844357-61hzh0l9t",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_2\"}",
+      "timestamp": "2026-07-12T17:04:04.357Z"
+    },
+    {
+      "id": "event-1783875844362-daikwpngd",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:04:04.362Z"
+    },
+    {
+      "id": "event-1783875844364-ckvy17f9u",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:04:04.364Z"
+    },
+    {
+      "id": "event-1783875844365-dmywjluxk",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_1\"}",
+      "timestamp": "2026-07-12T17:04:04.365Z"
+    },
+    {
+      "id": "event-1783875847790-ij7xu9mbs",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_0\"}",
+      "timestamp": "2026-07-12T17:04:07.790Z"
+    },
+    {
+      "id": "event-1783875847792-o2wemn1qs",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:04:07.792Z"
+    },
+    {
+      "id": "event-1783875854653-ocgtv14cy",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_1\"}",
+      "timestamp": "2026-07-12T17:04:14.653Z"
+    },
+    {
+      "id": "event-1783875854664-e76laddrk",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:04:14.664Z"
+    },
+    {
+      "id": "event-1783875860076-2g6ya7no3",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:04:20.076Z"
+    },
+    {
+      "id": "event-1783875860077-8b20lllqr",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_2\"}",
+      "timestamp": "2026-07-12T17:04:20.077Z"
+    },
+    {
+      "id": "event-1783875867623-4dtlc1mq2",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_3\"}",
+      "timestamp": "2026-07-12T17:04:27.623Z"
+    },
+    {
+      "id": "event-1783875867630-oz060mqfc",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:04:27.630Z"
+    },
+    {
+      "id": "event-1783875871984-6ddbkvfgl",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:04:31.984Z"
+    },
+    {
+      "id": "event-1783875871990-nsjromvtf",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_4\"}",
+      "timestamp": "2026-07-12T17:04:31.990Z"
+    },
+    {
+      "id": "event-1783875878851-su7hmvo5v",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_next_step_5\"}",
+      "timestamp": "2026-07-12T17:04:38.851Z"
+    },
+    {
+      "id": "event-1783875878860-xzc6wlqc3",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"NEXT\",\"elementType\":\"button\",\"text\":\"NEXT\"}",
+      "timestamp": "2026-07-12T17:04:38.860Z"
+    },
+    {
+      "id": "event-1783875881400-r1sx17dwc",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_prev_step_6\"}",
+      "timestamp": "2026-07-12T17:04:41.400Z"
+    },
+    {
+      "id": "event-1783875881407-lqe26coz6",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"elementId\":\"PREVIOUS\",\"elementType\":\"button\",\"text\":\"PREVIOUS\"}",
+      "timestamp": "2026-07-12T17:04:41.407Z"
+    },
+    {
+      "id": "event-1783875884230-pp2akr9wo",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_folder_click_2\"}",
+      "timestamp": "2026-07-12T17:04:44.230Z"
+    },
+    {
+      "id": "event-1783875885167-trbjkv57k",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_folder_click_0\"}",
+      "timestamp": "2026-07-12T17:04:45.167Z"
+    },
+    {
+      "id": "event-1783875886279-9p2k9uqq1",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_folder_click_3\"}",
+      "timestamp": "2026-07-12T17:04:46.279Z"
+    },
+    {
+      "id": "event-1783875887198-z9bdoiuub",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_folder_click_2\"}",
+      "timestamp": "2026-07-12T17:04:47.198Z"
+    },
+    {
+      "id": "event-1783875888665-c0hzkwojd",
+      "sessionId": "session-1783875121891-6qgo1b884",
+      "eventType": "click_project",
+      "eventData": "{\"action\":\"kinetic_folder_click_0\"}",
+      "timestamp": "2026-07-12T17:04:48.665Z"
+    }
+  ],
+  "siteContent": {
+    "name": "Priviledge Mukunga",
+    "title": "Full Stack Software Engineer & Creative Systems Developer",
+    "bio": "I am a full stack software engineer and systems architect specializing in high-performance web systems, interactive visualization canvases, and robust cloud services. I turn raw requirements into polished digital systems that scale elegantly.",
+    "email": "mukungapriviledge@gmail.com",
+    "skills": [
+      "Full Stack Engineering",
+      "Cloud Architecture",
+      "Interactive Visualizations",
+      "PostgreSQL & Redis",
+      "TypeScript & React",
+      "High-Throughput APIs",
+      "AI Integrations"
+    ],
+    "projects": [
+      {
+        "id": "project-1",
+        "title": "Zimbabwe Curio Connect - Artisans Marketplace",
+        "category": "Systems Engineering",
+        "description": "An e-commerce marketplace platform for local artisans featuring synchronized relational database structures, customized secure checkout sessions, and automated real-time inventory synchronization workflows.",
+        "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+        "thumbnail": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
+        "tags": [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "Tailwind CSS",
+          "Express",
+          "Stripe API"
+        ],
+        "metrics": {
+          "views": "34K Pageviews",
+          "retention": "88% Completion",
+          "engagement": "14% Conv."
+        }
+      },
+      {
+        "id": "project-2",
+        "title": "Gadgets & Glam - Traffic Optimization Funnel",
+        "category": "3D Motion Graphics",
+        "description": "A highly optimized, blazingly fast web commerce platform combined with an integrated digital marketing funnel designed to capture, nurture, and convert traffic into sales with flawless interactive user experiences.",
+        "videoUrl": "https://www.w3schools.com/html/movie.mp4",
+        "thumbnail": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80",
+        "tags": [
+          "React",
+          "Vite",
+          "Framer Motion",
+          "Tailwind CSS",
+          "Google Analytics",
+          "Marketing Funnel"
+        ],
+        "metrics": {
+          "views": "82K Visits",
+          "retention": "3.2x CTR",
+          "engagement": "28% Conversion"
+        }
+      },
+      {
+        "id": "project-3",
+        "title": "AdminPortal - Real-time Control & AI Engine Console",
+        "category": "Social Media / Reels",
+        "description": "A full-featured administrative console with secure gate authentication, dynamic content syncing, and real-time Gemini LLM automated contact lead reply generation.",
+        "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+        "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        "tags": [
+          "React",
+          "Express",
+          "Gemini AI SDK",
+          "Tailwind CSS",
+          "Node.js"
+        ],
+        "metrics": {
+          "views": "1.2K Leads",
+          "retention": "98% Auto-Sent",
+          "engagement": "12% Conv."
+        }
+      }
+    ],
+    "seoKeywords": [
+      "Priviledge Mukunga",
+      "Software Engineer",
+      "Full Stack Developer",
+      "Systems Architect",
+      "Creative Developer Portfolio",
+      "Interactive Canvas React"
+    ],
+    "metaDescription": "Professional software engineering and creative development portfolio of Priviledge Mukunga. High-performance full-stack web applications, distributed systems, and real-time interactive canvases."
+  }
+}

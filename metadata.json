@@ -1,0 +1,6 @@
+{
+  "name": "Priviledge Mukunga Portfolio",
+  "description": "Premium interactive portfolio for Priviledge Mukunga, Full Stack Software Engineer & Systems Architect, featuring kinetic video intro sequences, advanced Framer Motion and GSAP animations, automated lead responses, and an admin analytics dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
