@@ -20,56 +20,77 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
   // 4: "A great product makes people stop, feel the speed, and remember your brand" (Browser mockup, heart/brain sparks, "That's the game")
   // 5: "Blinking Eye - Turn vision into something that actually hits" (Giant interactive eye, wiping to home)
   const [screen, setScreen] = useState(0);
+  const [subStage, setSubStage] = useState(0);
   const [typedNameText, setTypedNameText] = useState("");
   const [typedProjectText, setTypedProjectText] = useState("");
   const [isDone, setIsDone] = useState(false);
   
   const timerRefs = useRef<NodeJS.Timeout[]>([]);
+  const onCompleteRef = useRef(onComplete);
 
-  // Step timings mimicking the high-speed rhythm of the reference video
   useEffect(() => {
-    // Screen 0: My name is... (0.0s to 3.2s)
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  // Step timings optimized for perfect visual impact, with extended attention and great product stages.
+  useEffect(() => {
+    // Screen 0: My name is... (0.0s to 4.0s)
     const t0 = setTimeout(() => {
       setScreen(1);
-    }, 3200);
+      setSubStage(0);
+    }, 4000);
 
-    // Screen 1: I'm a Developer... timeline & arcs (3.2s to 8.2s)
-    const t1 = setTimeout(() => {
-      setScreen(2);
-    }, 8200);
+    // Screen 1 - SubStage 1: Systems Architect (starts at 4.0s + 4.0s = 8.0s)
+    const t1_s1 = setTimeout(() => {
+      setSubStage(1);
+    }, 8000);
 
-    // Screen 2: Folders flip & QUALITY (8.2s to 13.8s)
+    // Screen 1 - SubStage 2: Specialties (starts at 8.0s + 4.0s = 12.0s)
+    const t1_s2 = setTimeout(() => {
+      setSubStage(2);
+    }, 12000);
+
+    // Screen 2: Folders flip & QUALITY (starts at 12.0s + 4.0s = 16.0s)
+    // Note: Folder flipping runs for 4.0s, then QUALITY triggers and runs for 4.0s.
     const t2 = setTimeout(() => {
-      setScreen(3);
-    }, 13800);
+      setScreen(2);
+    }, 16000);
 
-    // Screen 3: Earth, Creator/Business, ATTENTION & eyes (13.8s to 21.0s)
+    // Screen 3: Creator vs Business, then ATTENTION (starts at 16.0s + 8.0s = 24.0s)
+    // Note: Creator/Business stacks run for 4.0s, then ATTENTION triggers and runs for 10.0s.
     const t3 = setTimeout(() => {
-      setScreen(4);
-    }, 21000);
+      setScreen(3);
+    }, 24000);
 
-    // Screen 4: Browser mockup, stop/feel/remember, game (21.0s to 27.5s)
+    // Screen 4: Browser mockup, stop/feel/remember, game (starts at 24.0s + 14.0s = 38.0s)
+    // Note: runs for 9.0s to allow maximum storytelling impact and reading clarity
     const t4 = setTimeout(() => {
-      setScreen(5);
-    }, 27500);
+      setScreen(4);
+    }, 38000);
 
-    // Screen 5: The blinking Eye & Let's Work (27.5s to 32.5s)
+    // Screen 5: The blinking Eye & Let's Work (starts at 38.0s + 9.0s = 47.0s)
+    // Note: runs for 5.0s
     const t5 = setTimeout(() => {
-      setIsDone(true);
-      onComplete();
-    }, 32500);
+      setScreen(5);
+    }, 47000);
 
-    timerRefs.current = [t0, t1, t2, t3, t4, t5];
+    // Finish Intro & trigger onComplete (starts at 47.0s + 5.0s = 52.0s)
+    const t6 = setTimeout(() => {
+      setIsDone(true);
+      onCompleteRef.current();
+    }, 52000);
+
+    timerRefs.current = [t0, t1_s1, t1_s2, t2, t3, t4, t5, t6];
 
     return () => {
       timerRefs.current.forEach(clearTimeout);
     };
-  }, [onComplete]);
+  }, []);
 
   // Screen 0 typing animation
   useEffect(() => {
     if (screen !== 0) return;
-    const fullText = "My name ";
+    const fullText = "MY NAME ";
     let idx = 0;
     const interval = setInterval(() => {
       if (idx < fullText.length) {
@@ -123,7 +144,7 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
       <AnimatePresence mode="wait">
         
         {/* ========================================================
-            SCREEN 0: "My name is Priviledge" (Off-white TikTok starting look)
+            SCREEN 0: "My name is Priviledge" (Off-white TikTok starting look, perfectly centered and full screen)
             ======================================================== */}
         {screen === 0 && (
           <motion.div
@@ -131,30 +152,30 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="absolute inset-0 bg-[#f3f4f6] text-[#111] flex flex-col items-center justify-center font-sans"
+            className="absolute inset-0 bg-[#f8f9fa] text-[#111] flex flex-col items-center justify-center font-sans"
           >
-            <div className="text-center flex flex-col items-center gap-2">
-              {/* Typewriter "My name" */}
-              <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-slate-700 font-mono h-10 flex items-center">
+            <div className="text-center flex flex-col items-center justify-center gap-1 sm:gap-3 px-6 max-w-5xl">
+              {/* Typewriter "MY NAME" in clean tech monospace */}
+              <h2 className="text-xs sm:text-sm font-bold tracking-[0.25em] text-slate-500 font-mono h-8 flex items-center justify-center uppercase">
                 <span>{typedNameText}</span>
-                <span className="w-2 h-6 bg-slate-800 animate-[pulse_0.6s_infinite] ml-1" />
+                <span className="w-2 h-4 bg-purple-500 animate-[pulse_0.6s_infinite] ml-1.5" />
               </h2>
 
-              {/* Delayed giant "is Priviledge" trigger */}
+              {/* Delayed giant "IS Priviledge" trigger in massive display lettering */}
               <motion.h1
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1, duration: 0.5, ease: "easeOut" }}
-                className="text-5xl sm:text-7xl font-black tracking-tighter uppercase text-black leading-none"
+                transition={{ delay: 1.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="text-5xl xs:text-6xl sm:text-8xl md:text-[7rem] lg:text-[9rem] font-black tracking-[-0.05em] uppercase text-black leading-[0.9] select-none"
               >
-                is <span className="text-purple-600 font-serif italic">Priviledge</span>
+                IS <span className="text-purple-600 font-serif italic normal-case tracking-tight font-medium">Priviledge</span>
               </motion.h1>
             </div>
           </motion.div>
         )}
 
         {/* ========================================================
-            SCREEN 1: "I'm a Developer..." (Sub-stages mimicking timeline tracks & arc neon curves)
+            SCREEN 1: "I'm a Developer..." (Sub-stages beautifully managed on separate fullscreen renders)
             ======================================================== */}
         {screen === 1 && (
           <motion.div
@@ -163,31 +184,69 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="absolute inset-0 bg-[#020408] flex flex-col items-center justify-center p-6 relative"
+            className="absolute inset-0 bg-[#020408] flex flex-col items-center justify-center p-6"
           >
             {/* Soft dark stars background particles */}
-            <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-40" />
+            <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-40 pointer-events-none" />
 
-            <div className="relative z-10 w-full max-w-4xl flex flex-col items-center justify-center text-center">
+            <div className="relative z-10 w-full max-w-4xl h-full max-h-[500px] sm:max-h-[550px] flex flex-col items-center justify-between py-6 text-center">
               
-              {/* Core I'm tag */}
+              {/* Core I'm tag, placed gracefully at the top of the flex block, perfectly centered and safe from top edge */}
               <motion.span 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="text-base font-mono tracking-widest text-purple-400 uppercase font-bold mb-6 block"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-xs sm:text-sm font-mono tracking-widest text-purple-400 uppercase font-bold"
               >
                 [ WHO_I_AM ]
               </motion.span>
 
-              {/* STAGE A (3.2s to 4.8s): FULL-STACK ENGINEER (Color timeline blocks) */}
-              <StageA_Timeline />
+              {/* Centered stage content area with generous negative space */}
+              <div className="flex-1 flex items-center justify-center w-full my-4">
+                <AnimatePresence mode="wait">
+                  {subStage === 0 && (
+                    <motion.div
+                      key="substage-0"
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -15 }}
+                      transition={{ duration: 0.4 }}
+                      className="flex flex-col items-center justify-center w-full"
+                    >
+                      <StageA_Timeline />
+                    </motion.div>
+                  )}
 
-              {/* STAGE B (4.8s to 6.4s): SYSTEMS ARCHITECT (Neon circle arcs) */}
-              <StageB_NeonArcs />
+                  {subStage === 1 && (
+                    <motion.div
+                      key="substage-1"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
+                      className="flex flex-col items-center justify-center w-full"
+                    >
+                      <StageB_NeonArcs />
+                    </motion.div>
+                  )}
 
-              {/* STAGE C (6.4s to 8.2s): AND SO MUCH MORE (Word cloud floaters) */}
-              <StageC_WordCloud />
+                  {subStage === 2 && (
+                    <motion.div
+                      key="substage-2"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
+                      className="flex flex-col items-center justify-center w-full"
+                    >
+                      <StageC_WordCloud />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Empty container to perfectly balance the WHO_I_AM top tag */}
+              <div className="h-6 sm:h-8" />
 
             </div>
           </motion.div>
@@ -207,30 +266,34 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
           >
             <div className="absolute inset-0 bg-[radial-gradient(#1e1b4b15_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-30" />
 
-            <div className="relative z-10 w-full max-w-2xl flex flex-col items-center text-center">
+            <div className="relative z-10 w-full max-w-2xl h-full max-h-[500px] sm:max-h-[550px] flex flex-col items-center justify-between py-6 text-center">
               
-              {/* Futuristic Glassmorphic pill button for "journey..." */}
+              {/* Futuristic Glassmorphic pill button for "journey...", aligned and visible */}
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 150, delay: 0.1 }}
-                className="px-6 py-2.5 bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800/80 rounded-2xl shadow-2xl backdrop-blur-md text-xs font-mono font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2 mb-10"
+                className="px-6 py-2.5 bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800/80 rounded-2xl shadow-2xl backdrop-blur-md text-xs font-mono font-bold uppercase tracking-widest text-slate-300 flex items-center gap-2"
               >
                 <span className="w-2 h-2 rounded-full bg-purple-500 animate-ping" />
                 <span>My journey...</span>
               </motion.div>
 
-              {/* Desktop Folder icons flip animation */}
-              <FolderFlipper />
+              {/* Folder flipper centered perfectly with spacing */}
+              <div className="flex-1 flex flex-col items-center justify-center my-4">
+                <FolderFlipper />
 
-              {/* Types out: "every single project was built with one thing in mind" */}
-              <div className="h-8 font-mono text-xs text-slate-400 tracking-wider uppercase mt-8 text-center max-w-md">
-                {typedProjectText}
-                <span className="w-1.5 h-3.5 bg-slate-500 inline-block align-middle ml-0.5 animate-pulse" />
+                {/* Types out: "every single project was built with one thing in mind" */}
+                <div className="h-8 font-mono text-xs text-slate-400 tracking-wider uppercase mt-8 text-center max-w-md">
+                  {typedProjectText}
+                  <span className="w-1.5 h-3.5 bg-slate-500 inline-block align-middle ml-0.5 animate-pulse" />
+                </div>
               </div>
 
               {/* MASSIVE FLASHING HOT "QUALITY" REVEAL (11.5s to 13.8s) */}
               <QualityHotReveal />
+
+              <div className="h-6" />
 
             </div>
           </motion.div>
@@ -251,15 +314,15 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
             {/* Spinning Earth Globe (mimicking video planet) */}
             <SpinningEarthGlobe />
 
-            <div className="relative z-10 w-full max-w-4xl flex flex-col items-center justify-center text-center">
+            <div className="relative z-10 w-full max-w-4xl h-full max-h-[500px] sm:max-h-[550px] flex flex-col items-center justify-center text-center">
               
               {/* Creator vs Business Metal blocks */}
               <CreatorBusinessStacks />
 
-              {/* Giant ATTENTION with blinking eyes and Rainbow Stripes */}
-              <AttentionRainbowEyes />
-
             </div>
+
+            {/* Giant ATTENTION with blinking eyes and Rainbow Stripes - Fills full viewport for ultimate punchiness */}
+            <AttentionRainbowEyes />
           </motion.div>
         )}
 
@@ -341,152 +404,115 @@ export default function KineticIntro({ name, onComplete }: KineticIntroProps) {
 }
 
 // =========================================================================
-// SCREEN 1 HELPER MODULES
+// SCREEN 1 HELPER MODULES (Cleaned of absolute overlay classes for perfect centering)
 // =========================================================================
 
 function StageA_Timeline() {
-  const [active, setActive] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setActive(true), 200); // 3.4s
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <AnimatePresence>
-      {active && (
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.3 }}
-          className="flex flex-col items-center gap-4 py-6"
-        >
-          <h2 className="text-4xl sm:text-6xl font-black tracking-tighter uppercase text-white font-serif italic">
-            I'm a
-          </h2>
-          <h3 className="text-5xl sm:text-7xl font-display font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 uppercase leading-none">
-            Full-Stack Engineer
-          </h3>
+    <div className="flex flex-col items-center justify-center gap-3 py-6 w-full max-w-3xl text-center px-4">
+      <span className="font-mono text-purple-400 text-xs tracking-widest block uppercase mb-1 font-bold">[ PROFILE_01 ]</span>
+      <h2 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-[-0.05em] uppercase text-white leading-none">
+        I'M A <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500">FULL-STACK</span>
+      </h2>
+      <h3 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-[-0.05em] uppercase text-white leading-none">
+        ENGINEER
+      </h3>
 
-          {/* Visual colored timeline bars like the Premiere editing cuts */}
-          <div className="flex gap-2 w-72 sm:w-96 justify-center mt-4">
-            <motion.div initial={{ width: 0 }} animate={{ width: "35%" }} transition={{ delay: 0.3 }} className="h-6 rounded-md bg-purple-500/80 border border-purple-400/30 flex items-center justify-center text-[8px] font-mono font-bold text-white uppercase">React</motion.div>
-            <motion.div initial={{ width: 0 }} animate={{ width: "45%" }} transition={{ delay: 0.4 }} className="h-6 rounded-md bg-pink-500/80 border border-pink-400/30 flex items-center justify-center text-[8px] font-mono font-bold text-white uppercase">Express</motion.div>
-            <motion.div initial={{ width: 0 }} animate={{ width: "20%" }} transition={{ delay: 0.5 }} className="h-6 rounded-md bg-blue-500/80 border border-blue-400/30 flex items-center justify-center text-[8px] font-mono font-bold text-white uppercase">SQL</motion.div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Visual colored timeline bars like the Premiere editing cuts */}
+      <div className="flex gap-2.5 w-full max-w-sm justify-center mt-6">
+        <motion.div initial={{ width: 0 }} animate={{ width: "35%" }} transition={{ delay: 0.3 }} className="h-7 rounded-xl bg-purple-500 border border-purple-400/30 flex items-center justify-center text-[9px] font-mono font-bold text-white uppercase shadow-lg shadow-purple-500/10">React</motion.div>
+        <motion.div initial={{ width: 0 }} animate={{ width: "45%" }} transition={{ delay: 0.4 }} className="h-7 rounded-xl bg-pink-500 border border-pink-400/30 flex items-center justify-center text-[9px] font-mono font-bold text-white uppercase shadow-lg shadow-pink-500/10">Express</motion.div>
+        <motion.div initial={{ width: 0 }} animate={{ width: "20%" }} transition={{ delay: 0.5 }} className="h-7 rounded-xl bg-blue-500 border border-blue-400/30 flex items-center justify-center text-[9px] font-mono font-bold text-white uppercase shadow-lg shadow-blue-500/10">SQL</motion.div>
+      </div>
+    </div>
   );
 }
 
 function StageB_NeonArcs() {
-  const [active, setActive] = useState(false);
-  useEffect(() => {
-    // Active from 4.8s to 6.4s of the intro timeline
-    const tShow = setTimeout(() => setActive(true), 1600); // 4.8s
-    const tHide = setTimeout(() => setActive(false), 3200); // 6.4s
-    return () => {
-      clearTimeout(tShow);
-      clearTimeout(tHide);
-    };
-  }, []);
-
   return (
-    <AnimatePresence>
-      {active && (
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-[#020408] flex flex-col items-center justify-center p-6"
-        >
-          <span className="font-mono text-slate-500 text-[10px] tracking-widest block uppercase mb-3">02 / CORE CAPABILITY</span>
-          <h2 className="text-4xl sm:text-6xl font-display font-black tracking-tighter uppercase text-white leading-none">
-            Systems Architect
-          </h2>
+    <div className="flex flex-col items-center justify-center py-6 w-full text-center px-4">
+      <span className="font-mono text-purple-400 text-xs tracking-widest block uppercase mb-1 font-bold">[ PROFILE_02 ]</span>
+      <h2 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-[-0.05em] uppercase text-white leading-none mb-1">
+        SYSTEMS
+      </h2>
+      <h2 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-[-0.05em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500 leading-none">
+        ARCHITECT
+      </h2>
 
-          {/* Interactive neon circles arcs that spin around and draw in */}
-          <div className="relative w-48 h-48 mt-8 flex items-center justify-center">
-            {/* Arc 1 */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 border-t-2 border-r-2 border-indigo-500 rounded-full opacity-60"
-            />
-            {/* Arc 2 */}
-            <motion.div 
-              animate={{ rotate: -360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-3 border-b-2 border-l-2 border-purple-500 rounded-full opacity-60"
-            />
-            {/* Arc 3 */}
-            <motion.div 
-              animate={{ rotate: 180 }}
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-6 border-t-2 border-pink-500 rounded-full opacity-60"
-            />
-            <Cpu className="w-10 h-10 text-white animate-pulse" />
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Interactive neon circles arcs that spin around and draw in */}
+      <div className="relative w-40 h-40 sm:w-44 sm:h-44 mt-6 flex items-center justify-center">
+        {/* Arc 1 */}
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 border-t-2 border-r-2 border-indigo-500 rounded-full opacity-60"
+        />
+        {/* Arc 2 */}
+        <motion.div 
+          animate={{ rotate: -360 }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-3 border-b-2 border-l-2 border-purple-500 rounded-full opacity-60"
+        />
+        {/* Arc 3 */}
+        <motion.div 
+          animate={{ rotate: 180 }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-6 border-t-2 border-pink-500 rounded-full opacity-60"
+        />
+        <Cpu className="w-8 h-8 sm:w-10 sm:h-10 text-white animate-pulse" />
+      </div>
+    </div>
   );
 }
 
 function StageC_WordCloud() {
-  const [active, setActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    // Active from 6.4s to 8.2s of the intro timeline
-    const tShow = setTimeout(() => setActive(true), 3200); // 6.4s
-    return () => clearTimeout(tShow);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const scale = isMobile ? 0.55 : 1.0;
+
   const tags = [
-    { text: "React 19", x: -140, y: -70, size: "text-xs", color: "text-cyan-400" },
-    { text: "TypeScript", x: 120, y: -80, size: "text-sm font-bold", color: "text-blue-400" },
-    { text: "PostgreSQL", x: -100, y: 90, size: "text-base font-black", color: "text-amber-500" },
-    { text: "Redis Cache", x: 130, y: 60, size: "text-xs font-semibold", color: "text-red-400" },
-    { text: "Express API", x: -40, y: -120, size: "text-sm", color: "text-emerald-400" },
-    { text: "Framer Motion", x: 50, y: 110, size: "text-xs", color: "text-pink-400" },
-    { text: "Tailwind CSS", x: -160, y: 10, size: "text-xs font-bold", color: "text-purple-400" },
-    { text: "Docker", x: 160, y: -10, size: "text-sm", color: "text-sky-400" },
-    { text: "Vite Bundler", x: 0, y: 130, size: "text-xs font-mono", color: "text-indigo-400" }
+    { text: "Next.js", x: -140 * scale, y: -70 * scale, size: "text-xs", color: "text-cyan-400" },
+    { text: "TypeScript", x: 120 * scale, y: -80 * scale, size: "text-sm font-bold", color: "text-blue-400" },
+    { text: "GraphQL", x: -100 * scale, y: 90 * scale, size: "text-base font-black", color: "text-amber-500" },
+    { text: "Redis Cache", x: 130 * scale, y: 60 * scale, size: "text-xs font-semibold", color: "text-red-400" },
+    { text: "WebSockets", x: -40 * scale, y: -120 * scale, size: "text-sm", color: "text-emerald-400" },
+    { text: "Framer Motion", x: 50 * scale, y: 110 * scale, size: "text-xs", color: "text-pink-400" },
+    { text: "Tailwind CSS", x: -160 * scale, y: 10 * scale, size: "text-xs font-bold", color: "text-purple-400" },
+    { text: "Docker", x: 160 * scale, y: -10 * scale, size: "text-sm", color: "text-sky-400" },
+    { text: "Vite Bundler", x: 0, y: 130 * scale, size: "text-xs font-mono", color: "text-indigo-400" }
   ];
 
   return (
-    <AnimatePresence>
-      {active && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-[#020408] flex flex-col items-center justify-center p-6"
-        >
-          <span className="font-mono text-slate-500 text-[10px] tracking-widest block uppercase mb-4">03 / SPECIALTIES</span>
-          <h2 className="text-4xl sm:text-6xl font-serif italic font-black tracking-tight text-white uppercase leading-none z-10">
-            and so much more.
-          </h2>
+    <div className="flex flex-col items-center justify-center py-6 w-full relative text-center px-4">
+      <span className="font-mono text-purple-400 text-xs tracking-widest block uppercase mb-1 font-bold">[ PROFILE_03 ]</span>
+      <h2 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl font-sans font-black tracking-[-0.05em] uppercase text-white leading-none">
+        & SO MUCH MORE
+      </h2>
 
-          {/* Floating tags absolute positioned word cloud */}
-          <div className="relative w-full max-w-xl h-80 mt-6 flex items-center justify-center overflow-hidden">
-            {tags.map((tag, idx) => (
-              <motion.span
-                key={tag.text}
-                initial={{ opacity: 0, scale: 0.5, x: 0, y: 0 }}
-                animate={{ opacity: 1, scale: 1, x: tag.x, y: tag.y }}
-                transition={{ delay: idx * 0.05, duration: 0.4, type: "spring", stiffness: 100 }}
-                className={`absolute px-3 py-1.5 bg-white/[0.03] border border-white/[0.08] backdrop-blur-md rounded-xl font-mono uppercase tracking-wider shadow-lg ${tag.size} ${tag.color}`}
-              >
-                {tag.text}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* Floating tags absolute positioned word cloud */}
+      <div className="relative w-full max-w-xl h-72 mt-6 flex items-center justify-center overflow-hidden">
+        {tags.map((tag, idx) => (
+          <motion.span
+            key={tag.text}
+            initial={{ opacity: 0, scale: 0.5, x: 0, y: 0 }}
+            animate={{ opacity: 1, scale: 1, x: tag.x, y: tag.y }}
+            transition={{ delay: idx * 0.05, duration: 0.4, type: "spring", stiffness: 100 }}
+            className={`absolute px-3 py-1.5 bg-white/[0.03] border border-white/[0.08] backdrop-blur-md rounded-xl font-mono uppercase tracking-wider shadow-lg ${tag.size} ${tag.color}`}
+          >
+            {tag.text}
+          </motion.span>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -500,7 +526,7 @@ function FolderFlipper() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % 4);
-    }, 400); // rapidly flips every 400ms
+    }, 600); // slowed flipping slightly to 600ms
     return () => clearInterval(interval);
   }, []);
 
@@ -540,8 +566,8 @@ function FolderFlipper() {
 function QualityHotReveal() {
   const [active, setActive] = useState(false);
   useEffect(() => {
-    // Quality text triggers around 11.2s to 13.8s
-    const t = setTimeout(() => setActive(true), 2800); // 11s
+    // QUALITY text triggers relative to Screen 2 start (4.0s)
+    const t = setTimeout(() => setActive(true), 4000);
     return () => clearTimeout(t);
   }, []);
 
@@ -608,9 +634,9 @@ function SpinningEarthGlobe() {
 function CreatorBusinessStacks() {
   const [active, setActive] = useState(false);
   useEffect(() => {
-    // Shows Creator/Business silver block tags
-    const tShow = setTimeout(() => setActive(true), 200); // 14.0s
-    const tHide = setTimeout(() => setActive(false), 3500); // 17.3s
+    // Shows Creator/Business block tags (relative 0.2s to 4.0s)
+    const tShow = setTimeout(() => setActive(true), 200);
+    const tHide = setTimeout(() => setActive(false), 4000);
     return () => {
       clearTimeout(tShow);
       clearTimeout(tHide);
@@ -656,8 +682,8 @@ function CreatorBusinessStacks() {
 function AttentionRainbowEyes() {
   const [active, setActive] = useState(false);
   useEffect(() => {
-    // Trigger rainbow ATTENTION with flashing blinking eyes
-    const t = setTimeout(() => setActive(true), 3500); // 17.3s
+    // Trigger rainbow ATTENTION with flashing eyes (relative 4.0s of Screen 3)
+    const t = setTimeout(() => setActive(true), 4000);
     return () => clearTimeout(t);
   }, []);
 
@@ -668,7 +694,7 @@ function AttentionRainbowEyes() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-black flex flex-col items-center justify-center p-6 z-20 overflow-hidden"
+          className="absolute inset-0 bg-black flex flex-col items-center justify-center p-4 z-20 overflow-hidden"
         >
           {/* Rainbow neon background strips */}
           <div className="absolute inset-0 flex flex-col justify-between opacity-15 pointer-events-none">
@@ -680,17 +706,52 @@ function AttentionRainbowEyes() {
             <div className="h-6 w-full bg-purple-500" />
           </div>
 
-          <div className="relative z-10 text-center flex flex-col items-center">
+          {/* Centered with NO translations to guarantee absolute perfect central framing */}
+          <div className="relative z-10 text-center flex flex-col items-center justify-center w-full max-w-5xl">
             
-            <motion.h1
-              initial={{ scale: 0.2, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 220, damping: 12 }}
-              className="font-display font-black text-6xl sm:text-8xl md:text-9xl uppercase tracking-widest text-white leading-none relative select-none"
+            {/* Background stacked/repeated ATTENTION headlines for ultimate high-end agency style ("many") */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none opacity-[0.05] sm:opacity-[0.06] gap-2 sm:gap-4">
+              <span className="font-display font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl uppercase tracking-widest text-slate-400">ATTENTION</span>
+              <span className="font-display font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl uppercase tracking-widest text-slate-400">ATTENTION</span>
+              <div className="h-16 sm:h-24 md:h-28 lg:h-32" /> {/* spacer for the main active one */}
+              <span className="font-display font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl uppercase tracking-widest text-slate-400">ATTENTION</span>
+              <span className="font-display font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl uppercase tracking-widest text-slate-400">ATTENTION</span>
+            </div>
+
+            {/* Pulsating heartbeat scale wrapper for active attention container */}
+            <motion.div
+              animate={{ 
+                scale: [0.97, 1.03, 0.97],
+              }}
+              transition={{
+                duration: 2.2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="relative flex flex-col items-center my-6 sm:my-8 z-10"
             >
-              ATTENTION
-              <span className="absolute -inset-2 bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 mix-blend-overlay filter blur-sm pointer-events-none" />
-            </motion.h1>
+              <motion.h1
+                initial={{ scale: 0.3, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 180, damping: 10 }}
+                className="font-display font-black text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-widest text-white leading-none relative select-none"
+              >
+                ATTENTION
+                
+                {/* Glowing laser rotating halo backing the headline */}
+                <motion.span 
+                  animate={{ 
+                    rotate: 360,
+                    scale: [1, 1.15, 1]
+                  }}
+                  transition={{
+                    rotate: { duration: 12, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  }}
+                  className="absolute -inset-6 bg-gradient-to-tr from-red-600 via-yellow-500 via-green-500 via-blue-500 to-purple-600 mix-blend-screen filter blur-md pointer-events-none rounded-2xl opacity-45"
+                />
+              </motion.h1>
+            </motion.div>
 
             {/* Scattered blinking eyes floating around the headline */}
             <FloatingBlinkingEyes />
@@ -699,7 +760,7 @@ function AttentionRainbowEyes() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 0.8, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="font-mono text-purple-400 text-xs tracking-widest uppercase mt-8 block"
+              className="font-mono text-purple-400 text-[10px] sm:text-xs tracking-widest uppercase mt-6 sm:mt-10 block z-10 bg-black/40 px-3 py-1.5 rounded-full border border-white/[0.04] backdrop-blur-md"
             >
               And attention lies in elite web products.
             </motion.p>
@@ -711,13 +772,26 @@ function AttentionRainbowEyes() {
 }
 
 function FloatingBlinkingEyes() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const scale = isMobile ? 0.55 : 1.0;
+
   const eyeCoords = [
-    { x: -160, y: -90 },
-    { x: 180, y: -80 },
-    { x: -140, y: 70 },
-    { x: 150, y: 80 },
-    { x: -40, y: -130 },
-    { x: 50, y: 120 }
+    { x: -160 * scale, y: -110 * scale, rotate: -6 },
+    { x: 180 * scale, y: -100 * scale, rotate: 9 },
+    { x: -150 * scale, y: 90 * scale, rotate: 14 },
+    { x: 160 * scale, y: 100 * scale, rotate: -11 },
+    { x: -40 * scale, y: -150 * scale, rotate: 16 },
+    { x: 50 * scale, y: 140 * scale, rotate: -16 }
   ];
 
   return (
@@ -726,16 +800,25 @@ function FloatingBlinkingEyes() {
         <motion.div
           key={idx}
           initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, x: coord.x, y: coord.y }}
-          transition={{ delay: 0.3 + idx * 0.1, type: "spring", stiffness: 120 }}
+          animate={{ 
+            scale: 1, 
+            opacity: 1, 
+            x: coord.x, 
+            y: coord.y,
+            rotate: coord.rotate + (idx % 2 === 0 ? 4 : -4)
+          }}
+          transition={{ 
+            initial: { type: "spring", stiffness: 120 },
+            rotate: { duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
+          }}
           style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-          className="w-10 h-6 rounded-full bg-white flex items-center justify-center border border-black relative overflow-hidden"
+          className="w-11 h-7 rounded-full bg-white flex items-center justify-center border border-black relative overflow-hidden shadow-[0_0_15px_rgba(255,255,255,0.4)]"
         >
           {/* Pupil */}
           <motion.div
-            animate={{ x: [-3, 3, -3], y: [-1, 1, -1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="w-4.5 h-4.5 rounded-full bg-slate-900 flex items-center justify-center relative"
+            animate={{ x: [-4, 4, -4], y: [-2, 2, -2] }}
+            transition={{ duration: 4 + idx, repeat: Infinity, ease: "easeInOut" }}
+            className="w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center relative"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-white absolute top-1 left-1" />
           </motion.div>
@@ -743,7 +826,7 @@ function FloatingBlinkingEyes() {
           {/* Eyelids Blink effect */}
           <motion.div 
             animate={{ height: ["0%", "100%", "0%"] }}
-            transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 1.5 + idx * 0.8 }}
+            transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 1.2 + idx * 0.7 }}
             className="absolute inset-x-0 top-0 bg-[#0d0d12] h-0"
           />
         </motion.div>
@@ -797,10 +880,10 @@ function PerformanceFeaturesFlash() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    // 0: stop, 1: feel, 2: remember, 3: that's the game
-    const t1 = setTimeout(() => setStep(1), 1200); // feel
-    const t2 = setTimeout(() => setStep(2), 2600); // remember
-    const t3 = setTimeout(() => setStep(3), 4200); // that's the game
+    // Beautifully spaced out sequence matching the longer 9-second screen duration for pristine readability
+    const t1 = setTimeout(() => setStep(1), 2200); // feel
+    const t2 = setTimeout(() => setStep(2), 4400); // remember
+    const t3 = setTimeout(() => setStep(3), 6600); // that's the game
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
