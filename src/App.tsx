@@ -13,12 +13,15 @@ import AdminDashboard from "./components/AdminDashboard";
 import TikkaPhilosophy from "./components/TikkaPhilosophy";
 import FindServices from "./components/FindServices";
 import OryzoBlueprint from "./components/OryzoBlueprint";
+import FeaturedWorkPinned from "./components/FeaturedWorkPinned";
+import { Project } from "./types";
 
 export default function App() {
   const [content, setContent] = useState<SiteContent | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showAdmin, setShowAdmin] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   // Custom cursor states
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
@@ -212,8 +215,15 @@ export default function App() {
               {/* PERFORMANCE SYSTEM BLUEPRINT OPTIMIZER (Oryzo inspired) */}
               <OryzoBlueprint />
 
+              {/* CINEMATIC GSAP HORIZONTAL SCROLL FEATURED WORK */}
+              <FeaturedWorkPinned projects={content.projects} onSelectProject={setSelectedProject} />
+
               {/* BENTO SELECTED WORKS PORTFOLIO */}
-              <Portfolio projects={content.projects} />
+              <Portfolio 
+                projects={content.projects} 
+                selectedProject={selectedProject} 
+                setSelectedProject={setSelectedProject} 
+              />
 
               {/* FUNCTIONAL CONTACT FORM & AI REPLY */}
               <ContactForm />

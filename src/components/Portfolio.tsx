@@ -7,11 +7,17 @@ import { logEvent } from "./AnalyticsTracker";
 
 interface PortfolioProps {
   projects: Project[];
+  selectedProject?: Project | null;
+  setSelectedProject?: (project: Project | null) => void;
 }
 
-export default function Portfolio({ projects }: PortfolioProps) {
+export default function Portfolio({ projects, selectedProject: propsSelectedProject, setSelectedProject: propsSetSelectedProject }: PortfolioProps) {
   const [filter, setFilter] = useState<string>("All");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [localSelectedProject, setLocalSelectedProject] = useState<Project | null>(null);
+  
+  const selectedProject = propsSelectedProject !== undefined ? propsSelectedProject : localSelectedProject;
+  const setSelectedProject = propsSetSelectedProject !== undefined ? propsSetSelectedProject : setLocalSelectedProject;
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -134,7 +140,7 @@ export default function Portfolio({ projects }: PortfolioProps) {
       <div className="max-w-7xl mx-auto w-full">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="portfolio-gsap-reveal">
+          <div className="portfolio-gsap-reveal text-left">
             <span className="font-mono text-purple-400 text-xs tracking-widest uppercase block mb-3">
               CREATIVE ARCHIVE
             </span>

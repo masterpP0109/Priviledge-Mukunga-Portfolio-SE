@@ -140,7 +140,7 @@ export default function Hero({ name, title, bio, onExploreProjects, onContactMe 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight text-white mb-6 uppercase"
+            className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight text-white mb-6 uppercase animate-pulse-glow"
           >
             Providing <span className="gradient">the best</span> Project <span className="gradient">Experience</span>
           </motion.h1>
