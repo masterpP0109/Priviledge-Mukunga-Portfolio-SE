@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Search, Compass, Eye, Cpu, Settings, Footprints } from "lucide-react";
+import { Search, Compass, Cpu, Settings } from "lucide-react";
 
 interface ProcessStep {
   number: string;
@@ -13,42 +13,35 @@ export default function CreativeProcess() {
   const steps: ProcessStep[] = [
     {
       number: "01",
-      title: "Discover",
-      text: "Understand the brief, target audience, technical context, database metrics, and desired outcome.",
-      icon: <Search className="w-5 h-5 text-purple-400" />
+      title: "DISCOVER",
+      text: "Understanding project goals, audience requirements, technical constraints and key outcomes.",
+      icon: <Search className="w-5 h-5 text-[#E46F43]" />
     },
     {
       number: "02",
-      title: "Define",
-      text: "Translate the challenge into a focused creative direction, architectural diagram, and relational schema blueprint.",
-      icon: <Compass className="w-5 h-5 text-purple-400" />
+      title: "DESIGN",
+      text: "Mapping user flows, wireframing layouts and creating interface prototypes in Figma or Adobe XD.",
+      icon: <Compass className="w-5 h-5 text-[#E46F43]" />
     },
     {
       number: "03",
-      title: "Explore",
-      text: "Develop concepts, kinetic layout systems, interactive prototypes, and high-fidelity visual approaches.",
-      icon: <Eye className="w-5 h-5 text-purple-400" />
+      title: "BUILD",
+      text: "Writing clean front-end code, implementing application logic and structuring MySQL/Postgres databases.",
+      icon: <Cpu className="w-5 h-5 text-[#E46F43]" />
     },
     {
       number: "04",
-      title: "Build",
-      text: "Design, animate, develop, and compile the final responsive experience into clean, high-performance CJS containers.",
-      icon: <Cpu className="w-5 h-5 text-purple-400" />
-    },
-    {
-      number: "05",
-      title: "Refine",
-      text: "Load test concurrent routes, speed-tune Redis caching arrays, and prepare the code for absolute production stability.",
-      icon: <Settings className="w-5 h-5 text-purple-400" />
+      title: "REFINE",
+      text: "Testing across devices, optimizing performance, deploying and making continuous improvements.",
+      icon: <Settings className="w-5 h-5 text-[#E46F43]" />
     }
   ];
 
-  // Restrained perspective rise variants from prompt
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.12 // between 0.1 and 0.14s
+        staggerChildren: 0.12
       }
     }
   };
@@ -56,85 +49,76 @@ export default function CreativeProcess() {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 55, // between 45 and 65px
-      scale: 0.95, // between 0.94 and 0.97
-      rotateX: 6, // between 5 and 8 deg
-      filter: "blur(2.5px)", // between 2 and 3px
+      y: 40,
+      scale: 0.96,
+      filter: "blur(2px)",
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      rotateX: 0,
       filter: "blur(0px)",
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.8
+        duration: 0.7,
+        ease: "easeOut"
       }
     }
   };
 
   return (
-    <section className="relative bg-[#020408] text-white py-24 px-6 overflow-hidden border-b border-slate-900/40">
-      {/* Visual background marks */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e1b4b08_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
+    <section id="process" className="relative bg-[#0C0D0D] text-white py-24 px-6 sm:px-12 overflow-hidden border-b border-white/[0.06]">
+      {/* Background grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20 flex flex-col items-center">
-          <span className="font-mono text-purple-400 text-xs tracking-widest uppercase block mb-3 font-semibold">
-            METICULOUS JOURNEY
+        <div className="text-left mb-16 flex flex-col items-start max-w-2xl">
+          <span className="font-mono text-[#C7FF3D] text-xs tracking-widest uppercase block mb-3 font-semibold">
+            DEVELOPMENT PROCESS
           </span>
-          <h2 className="font-serif italic font-normal text-4xl sm:text-6xl text-white tracking-tight leading-none mb-4">
-            The Creative <span className="font-sans font-black not-italic uppercase text-purple-300">Process.</span>
+          <h2 className="font-serif italic font-normal text-3xl sm:text-5xl lg:text-6xl text-[#F2EEE6] tracking-tight leading-none mb-4">
+            A clear process creates <span className="font-sans font-black not-italic uppercase text-white">better products.</span>
           </h2>
-          <p className="text-slate-400 font-sans max-w-lg text-sm sm:text-base leading-relaxed">
-            Every project follows a carefully structured progression from core discovery to robust server-side refinement.
+          <p className="text-[#B7B4AD] font-sans text-base leading-relaxed">
+            Every project follows a transparent sequence from initial requirements to tested production.
           </p>
         </div>
 
-        {/* 5 Process Cards container */}
+        {/* 4 Process Cards container */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          style={{ perspective: "1000px" }}
-          className="grid grid-cols-1 md:grid-cols-5 gap-6 items-stretch relative"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch relative"
         >
           {steps.map((step, idx) => (
             <motion.div
               key={step.number}
               variants={cardVariants}
-              className="bg-slate-950/80 border border-white/[0.04] hover:border-purple-500/30 p-6 rounded-2xl flex flex-col justify-between text-left relative group transition-all duration-300 shadow-[0_4px_32px_rgba(0,0,0,0.3)] h-full"
+              className="bg-white/[0.02] border border-white/10 hover:border-[#E46F43]/40 p-7 rounded-2xl flex flex-col justify-between text-left relative group transition-all duration-300 shadow-xl h-full"
             >
-              {/* Card top elements */}
               <div>
                 <div className="flex justify-between items-center mb-6">
-                  <span className="font-mono text-xs text-purple-400 font-bold block">
-                    STAGE // {step.number}
+                  <span className="font-mono text-xs text-[#E46F43] tracking-widest font-bold">
+                    PHASE {step.number}
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                  <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 group-hover:border-[#E46F43]/30 transition-colors">
                     {step.icon}
                   </div>
                 </div>
 
-                <h3 className="font-display font-black text-lg text-white uppercase tracking-tight leading-none mb-3">
+                <h3 className="font-sans font-black text-2xl text-[#F2EEE6] tracking-tight mb-3">
                   {step.title}
                 </h3>
-
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-sans mb-4">
+                <p className="text-[#B7B4AD] text-sm leading-relaxed font-sans">
                   {step.text}
                 </p>
               </div>
 
-              {/* Bottom decorative bar */}
-              <div className="border-t border-slate-900/60 pt-4 mt-2">
-                <span className="font-mono text-[9px] text-slate-500 uppercase tracking-widest block">
-                  READY_NODE: OK
-                </span>
+              <div className="mt-8 pt-4 border-t border-white/[0.05] flex items-center justify-between font-mono text-[10px] text-zinc-500">
+                <span>STAGE 0{idx + 1}</span>
+                <span className="text-[#C7FF3D]">DELIVERED</span>
               </div>
             </motion.div>
           ))}

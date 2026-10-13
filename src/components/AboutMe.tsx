@@ -1,86 +1,92 @@
 import React from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Compass, Shield, User } from "lucide-react";
+import { ArrowUpRight, User } from "lucide-react";
 
 export default function AboutMe() {
+  const editorialSteps = ["DESIGN", "DEVELOP", "TEST", "DEPLOY", "IMPROVE"];
+
   const principles = [
     {
       id: "p-1",
-      title: "Story First",
-      text: "Code exists to express an idea. Every pixel, transition, and endpoint should reinforce the story and values of the product."
+      title: "Thoughtful Front-End",
+      text: "Interfaces should be clear, accessible and responsive across every device without overwhelming the user."
     },
     {
       id: "p-2",
-      title: "No False Promises",
-      text: "Everything is real. Hand-crafted PostgreSQL databases, low-latency node networks, and responsive layouts instead of static mockups."
+      title: "Reliable Back-End",
+      text: "Application logic and database architectures built for speed, security and maintainable growth."
     },
     {
       id: "p-3",
-      title: "Sub-Millisecond Mindset",
-      text: "Speed is a feature. High-performance caching, bundled Node targets, and lightweight bundle delivery are core architectures."
+      title: "Practical Delivery",
+      text: "Building software that works smoothly in production and delivers genuine value to creators and businesses."
     }
   ];
 
   return (
-    <section id="about" className="relative bg-[#05070c] text-white py-24 px-6 overflow-hidden">
-      {/* Editorial glowing accents */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-900/10 rounded-full filter blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-900/5 rounded-full filter blur-[150px] pointer-events-none" />
+    <section id="about" className="relative bg-[#0C0D0D] text-white py-24 px-6 sm:px-12 overflow-hidden border-b border-white/[0.06]">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#E46F43]/10 rounded-full filter blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-purple-900/10 rounded-full filter blur-[160px] pointer-events-none" />
       
       {/* Fine grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.005)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.005)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
-        {/* Left Side: Creative Image Collage / Vertical Reveal Mask */}
+        {/* Left Side: Editorial Image & Workspace Card */}
         <div className="lg:col-span-5 relative group">
-          {/* Vertical Mask reveal */}
           <motion.div
-            initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-            whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-            className="relative h-[480px] sm:h-[600px] w-full rounded-3xl overflow-hidden bg-slate-950 border border-white/[0.08] shadow-[0_12px_64px_-12px_rgba(139,92,246,0.15)]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative h-[480px] sm:h-[560px] w-full rounded-3xl overflow-hidden bg-white/[0.02] border border-white/10 shadow-2xl flex flex-col justify-between p-8"
           >
-            {/* Dark abstract overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent z-10" />
-            
-            {/* Unsplash creative portrait / dark workspace overlay */}
+            {/* Background Image overlay */}
             <img 
               src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80" 
-              alt="Creative Space" 
+              alt="Priviledge Workspace" 
               referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:scale-105 group-hover:rotate-1 transition-transform duration-700 ease-out"
+              className="absolute inset-0 w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700 ease-out"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0D] via-[#0C0D0D]/40 to-transparent z-10" />
 
-            {/* Recurring visual motif - Glowing Aperture ring floating on image */}
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-48 h-48 rounded-full border-2 border-dashed border-purple-500/20 flex items-center justify-center"
-              >
-                <div className="w-40 h-40 rounded-full border border-purple-500/40 flex items-center justify-center relative bg-slate-950/40 backdrop-blur-sm">
-                  {/* Glowing center dot */}
-                  <div className="w-3 h-3 rounded-full bg-purple-500 shadow-[0_0_15px_#a855f7]" />
-                  <div className="absolute w-2 h-2 rounded-full bg-pink-500 shadow-[0_0_10px_#ec4899] top-4 left-1/2 -translate-x-1/2" />
-                </div>
-              </motion.div>
+            {/* Top Badge */}
+            <div className="relative z-20 flex justify-between items-center">
+              <span className="font-mono text-xs text-[#C7FF3D] uppercase tracking-widest bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                PRIVILEDGE MUKUNGA
+              </span>
+              <span className="font-mono text-[10px] text-[#B7B4AD] uppercase">
+                ZIMBABWE
+              </span>
             </div>
 
-            {/* Float Badge */}
-            <div className="absolute bottom-6 left-6 z-20 bg-slate-950/85 border border-white/[0.08] p-5 rounded-2xl backdrop-blur-md max-w-[280px]">
-              <span className="font-mono text-[9px] text-purple-400 block uppercase tracking-widest font-semibold mb-1">
-                LOCATION & MODE
+            {/* Editorial Stack tags vertically */}
+            <div className="relative z-20 flex flex-wrap gap-2 my-auto">
+              {editorialSteps.map((step, idx) => (
+                <div 
+                  key={step} 
+                  className="px-3 py-1 bg-white/[0.05] border border-white/10 backdrop-blur-md rounded-lg font-mono text-[11px] text-[#F2EEE6] tracking-wider uppercase"
+                >
+                  0{idx + 1}. {step}
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Info Card */}
+            <div className="relative z-20 bg-black/80 border border-white/10 p-5 rounded-2xl backdrop-blur-md">
+              <span className="font-mono text-[10px] text-[#E46F43] block uppercase tracking-widest font-bold mb-1">
+                ENGINEERING ETHOS
               </span>
-              <p className="font-display font-black text-sm uppercase text-white leading-tight">
-                Available Globally for Selected Contracts
+              <p className="font-serif italic text-base text-[#F2EEE6] leading-snug">
+                "Balancing clean visual aesthetics with high-performance code and database integrity."
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Right Side: Editorial Content with staggered entry */}
+        {/* Right Side: Editorial Narrative Content */}
         <div className="lg:col-span-7 text-left flex flex-col justify-center">
           
           {/* Eyebrow */}
@@ -88,11 +94,10 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-purple-950/40 border border-purple-500/20 text-purple-400 font-mono text-xs rounded-full uppercase tracking-widest mb-6 w-fit"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/[0.04] border border-white/10 text-[#B7B4AD] font-mono text-xs rounded-full uppercase tracking-widest mb-6 w-fit"
           >
-            <User className="w-3.5 h-3.5 text-purple-400" />
-            <span>Creative Identity</span>
+            <User className="w-3.5 h-3.5 text-[#E46F43]" />
+            <span>ABOUT PRIVILEDGE</span>
           </motion.div>
 
           {/* Heading */}
@@ -100,43 +105,32 @@ export default function AboutMe() {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.05 }}
-            className="font-serif italic font-normal text-4xl sm:text-6xl text-white tracking-tight leading-none mb-6"
+            transition={{ delay: 0.05 }}
+            className="font-serif italic font-normal text-3xl sm:text-5xl lg:text-6xl text-[#F2EEE6] tracking-tight leading-none mb-6"
           >
-            More than a <span className="font-sans font-black not-italic uppercase text-purple-300">portfolio.</span>
+            I build digital experiences from <span className="font-sans font-black not-italic uppercase text-white">both sides</span> of the stack.
           </motion.h2>
 
-          {/* Statement */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-sans font-medium text-lg sm:text-xl text-white leading-relaxed mb-6 border-l-2 border-purple-500/80 pl-5 py-1"
-          >
-            I combine visual storytelling, thoughtful systems, and interaction design to turn ideas into experiences that feel clear, useful, and memorable.
-          </motion.p>
-
-          {/* Paragraphs */}
+          {/* Bio Narrative */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="flex flex-col gap-4 text-slate-400 text-sm sm:text-base leading-relaxed mb-10"
+            transition={{ delay: 0.1 }}
+            className="flex flex-col gap-4 text-[#B7B4AD] font-sans text-base sm:text-lg leading-relaxed mb-8"
           >
-            <p>
-              I believe in architecting code with high visual aesthetics. A website should load under a second, respond seamlessly to scroll, and display gorgeous typography while remaining highly secure and manageable.
+            <p className="border-l-2 border-[#E46F43] pl-4 text-white font-medium">
+              Hi, I’m Priviledge, a Zimbabwe-based developer who enjoys turning complex problems into clear and useful digital experiences. I work across front-end design, application logic and databases to create products that look polished, perform reliably and can grow with the people who use them.
             </p>
             <p>
-              Over the last five years, I have engineered custom full-stack solutions for e-commerce, cloud integrations, real-time performance blueprints, and immersive media systems.
+              My work focuses on clean code structure, sensible user interfaces and thoughtful development practices. Whether I’m designing a new interface or organizing data behind the scenes, I aim for balance between aesthetics and performance.
             </p>
           </motion.div>
 
-          {/* Personal Principles list */}
-          <div className="border-t border-slate-900/80 pt-8 mb-10">
-            <span className="font-mono text-[10px] text-slate-500 uppercase block tracking-widest mb-6 font-semibold">
-              Operational Principles:
+          {/* Principles Grid */}
+          <div className="border-t border-white/[0.08] pt-8 mb-8">
+            <span className="font-mono text-xs text-[#B7B4AD] uppercase block tracking-widest mb-6 font-semibold">
+              CORE PHILOSOPHY:
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {principles.map((princ, idx) => (
@@ -145,13 +139,13 @@ export default function AboutMe() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="flex flex-col gap-2"
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex flex-col gap-2 bg-white/[0.02] border border-white/[0.05] p-4 rounded-xl"
                 >
-                  <span className="font-mono text-[11px] text-purple-400 font-bold uppercase">
-                    0{idx + 1} // {princ.title}
+                  <span className="font-mono text-xs text-[#E46F43] font-bold uppercase">
+                    0{idx + 1}. {princ.title}
                   </span>
-                  <p className="text-slate-400 text-xs leading-relaxed font-sans">
+                  <p className="text-[#B7B4AD] text-xs leading-relaxed font-sans">
                     {princ.text}
                   </p>
                 </motion.div>
@@ -159,22 +153,21 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {/* Action Links */}
+          {/* Download CV CTA */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
             className="flex items-center gap-6"
           >
             <a 
-              href="https://wa.me/263773887577" 
+              href="https://wa.me/263773887577?text=Hello%20Priviledge,%20I%20would%20like%20to%20request%20your%20CV" 
               target="_blank" 
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-purple-400 hover:text-purple-300 transition-colors group"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white font-mono text-xs font-bold uppercase tracking-wider rounded-xl transition-all group"
             >
-              <span>Download Full CV / Resume</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span>Download CV / Request Details</span>
+              <ArrowUpRight className="w-4 h-4 text-[#C7FF3D] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </motion.div>
 

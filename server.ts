@@ -26,85 +26,95 @@ if (!fs.existsSync(DB_DIR)) {
 const defaultProjects: Project[] = [
   {
     id: "project-1",
-    title: "Illuvium Gaming Site",
-    category: "Web Systems",
-    description: "A dynamic gaming website featuring interactive elements, stunning visuals, and immersive user experience for gamers.",
-    videoUrl: "vids/project1.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
-    tags: ["HTML", "CSS", "Javascript", "Gaming"],
-    metrics: { views: "45K", retention: "89%", engagement: "Web" }
-  },
-  {
-    id: "project-2",
-    title: "Prinor Ecommerce",
-    category: "Web Systems",
-    description: "A modern e-commerce platform with secure payment integration, product catalog, and seamless shopping experience.",
+    title: "Prinor E-commerce",
+    category: "E-commerce / Full-Stack Development",
+    description: "A modern online shopping experience designed around clear product discovery, an intuitive purchasing journey and reliable transaction flows.",
     videoUrl: "vids/project2.mp4",
     thumbnail: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80",
-    tags: ["E-Commerce", "React", "Payment Gateways", "MySQL"],
+    tags: ["Responsive UI", "Product Catalogue", "Shopping Experience", "Database Integration"],
     metrics: { views: "72K", retention: "92%", engagement: "Web" }
   },
   {
+    id: "project-2",
+    title: "Inventory Management System",
+    category: "Business System / Full-Stack Development",
+    description: "A comprehensive business system with real-time stock tracking, database transactions, automated reporting, and role-based access control.",
+    videoUrl: "vids/project1.mp4",
+    thumbnail: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+    tags: ["MySQL Database", "Inventory Metrics", "Node.js API", "Dashboard"],
+    metrics: { views: "58K", retention: "94%", engagement: "Web" }
+  },
+  {
     id: "project-3",
-    title: "Joy Coffee",
-    category: "Web Systems",
-    description: "A cozy coffee shop website showcasing menu items, location details, and an inviting atmosphere for coffee lovers.",
+    title: "Baobab Primary School Website",
+    category: "Brand & Institutional Website",
+    description: "An inviting, structured institutional platform showcasing school programs, admissions procedures, announcements, and portal resources.",
     videoUrl: "vids/project3.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
-    tags: ["CSS Grid", "Animations", "Aesthetics", "Responsive"],
-    metrics: { views: "34K", retention: "85%", engagement: "Web" }
+    thumbnail: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80",
+    tags: ["Responsive Web", "Information Architecture", "School Portal", "UX"],
+    metrics: { views: "41K", retention: "87%", engagement: "Web" }
   },
   {
     id: "project-4",
     title: "Zara News Website",
-    category: "Systems Engineering",
-    description: "A responsive news website with clean design, categorized articles, and optimized for fast loading and readability.",
+    category: "News and Content Platform",
+    description: "A reading-first news interface with organised article categories, responsive layouts and fast, clear navigation.",
     videoUrl: "vids/project2 (1).mp4",
     thumbnail: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
-    tags: ["News", "Publishing", "Optimizations", "API"],
+    tags: ["Content Design", "Responsive Layout", "Article Categories", "Performance"],
     metrics: { views: "65K", retention: "88%", engagement: "Web" }
   },
   {
     id: "project-5",
-    title: "Stylish Portfolio Website",
-    category: "Interactive Canvas",
-    description: "An elegant portfolio website template featuring smooth animations, responsive design, and professional presentation.",
+    title: "Illuvium Gaming Site",
+    category: "Interactive Front-End Experience",
+    description: "An immersive gaming website combining cinematic visuals, interactive sections and responsive layouts to create an engaging experience for players.",
     videoUrl: "vids/project1.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-    tags: ["CSS3", "Creative Coding", "GSAP Animations", "UX"],
-    metrics: { views: "88K", retention: "91%", engagement: "Web" }
+    thumbnail: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
+    tags: ["Creative Development", "Motion", "Responsive Design", "Interactive UI"],
+    metrics: { views: "89K", retention: "95%", engagement: "Web" }
   },
   {
     id: "project-6",
-    title: "Modern Portfolio Website",
-    category: "Interactive Canvas",
-    description: "A contemporary portfolio design with minimalist aesthetics, interactive elements, and optimized user interface.",
-    videoUrl: "vids/project2.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
-    tags: ["Minimalism", "Portfolio", "Framer Motion", "Tailwind"],
-    metrics: { views: "56K", retention: "94%", engagement: "Web" }
+    title: "Movie Landing Page",
+    category: "Entertainment Landing Page",
+    description: "A cinematic promotional experience combining trailer content, cast information and immersive visual transitions.",
+    videoUrl: "vids/project3.mp4",
+    thumbnail: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+    tags: ["Landing Page", "Cinematic Design", "Media Integration", "Responsive UI"],
+    metrics: { views: "94K", retention: "97%", engagement: "Web" }
   },
   {
     id: "project-7",
-    title: "Movie Landing Page",
-    category: "Systems Engineering",
-    description: "A cinematic landing page for movie promotions with trailer integration, cast information, and engaging visuals.",
+    title: "Joy Coffee",
+    category: "Brand and Hospitality Website",
+    description: "A warm, brand-led website presenting menu items, location information and clear visit and contact actions for coffee lovers.",
     videoUrl: "vids/project3.mp4",
-    thumbnail: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
-    tags: ["Cinematic", "HTML5 Video", "Landing Page", "Animations"],
-    metrics: { views: "94K", retention: "97%", engagement: "Web" }
+    thumbnail: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+    tags: ["Brand Design", "Responsive Website", "Menu Presentation", "Local Business"],
+    metrics: { views: "34K", retention: "85%", engagement: "Web" }
+  },
+  {
+    id: "project-8",
+    title: "Portfolio Design Experiments",
+    category: "Creative Development",
+    description: "A collection of interface and animation experiments exploring typography, layout, motion and modern portfolio presentation.",
+    videoUrl: "vids/project1.mp4",
+    thumbnail: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+    tags: ["UI Design", "Motion", "Typography", "Creative Coding"],
+    metrics: { views: "62K", retention: "91%", engagement: "Web" }
   }
 ];
 
 const defaultSiteContent: SiteContent = {
   name: "Priviledge Mukunga",
-  title: "Full Stack Developer Portfolio",
-  bio: "I,m a Full Stack developer with Experience in website, Mobile And Software development. Check Out my Projects and skills",
+  title: "Full-Stack Developer",
+  bio: "I’m Priviledge Mukunga, a full-stack developer creating responsive websites, web applications and software experiences—from interface design to databases and deployment.",
   email: "mukungapriviledge@gmail.com",
-  skills: ["Full Stack Engineering", "Cloud Architecture", "Interactive Visualizations", "PostgreSQL & Redis", "TypeScript & React", "High-Throughput APIs", "AI Integrations"],
+  skills: ["HTML", "CSS", "JavaScript", "MySQL", "Figma", "Adobe XD", "React", "Node.js", "TypeScript"],
   projects: defaultProjects,
-  seoKeywords: ["Priviledge Mukunga", "Software Engineer", "Full Stack Developer", "Systems Architect", "Creative Developer Portfolio", "Interactive Canvas React"],
-  metaDescription: "Professional software engineering and creative development portfolio of Priviledge Mukunga. High-performance full-stack web applications, distributed systems, and real-time interactive canvases."
+  seoKeywords: ["Priviledge Mukunga", "Full-Stack Developer", "Software Engineer Zimbabwe", "Web Developer Zimbabwe", "Interactive Portfolio", "MySQL React Developer"],
+  metaDescription: "Portfolio of Priviledge Mukunga, a Zimbabwe-based full-stack developer creating responsive websites, web applications and digital products."
 };
 
 interface LocalDB {
